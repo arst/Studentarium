@@ -1,0 +1,2 @@
+# Studentarium
+Example ExtJS application
