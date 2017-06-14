@@ -16,6 +16,14 @@ Ext.define('Test.view.news.NewsMainView',{
            region: 'center',
            collapsible: false,
            layout: 'fit',
+           items: []
+       },
+       {
+           title: 'Top news',
+           region: 'east',
+           width: 175,
+           minWidth: 100,
+           maxWidth: 250,
            items: [
                {
                    xtype: 'grid',
@@ -24,13 +32,7 @@ Ext.define('Test.view.news.NewsMainView',{
                    }
                }
            ]
-       },
-       {
-           title: 'Top news',
-           region: 'east',
-           width: 175,
-           minWidth: 100,
-           maxWidth: 250
        }
+
     ]
 });
