@@ -9,11 +9,15 @@ Ext.define('Test.view.main.StudentDetails', {
     defaults: {
         padding: 10,
     },
-    items:[
+    items: [
         {
             xtype: 'panel',
             columnWidth: 0.2,
-            html: '<img src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==" alt="Red dot" />'
+            bind: {
+                html: '{studentPhotoHtml}'
+            }
+            //html: '<img src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==" alt="Red dot" />'
+
         },
         {
             xtype: 'panel',
@@ -25,24 +29,27 @@ Ext.define('Test.view.main.StudentDetails', {
             items: [
                 {
                     xtype: 'textfield',
+                    readOnly: true,
                     fieldLabel: 'First Name',
                     labelAlign: 'left',
                     bind: '{studentsList.selection.firstName}'
                 },
                 {
                     xtype: 'textfield',
+                    readOnly: true,
                     fieldLabel: 'Middle Name',
                     bind: '{studentsList.selection.middleName}'
                 },
                 {
                     xtype: 'textfield',
+                    readOnly: true,
                     fieldLabel: 'Last Name',
                     bind: '{studentsList.selection.lastName}'
-                } 
+                }
             ]
         },
         {
-            xtype: 'panel', 
+            xtype: 'panel',
             columnnWidth: 0.4,
             layout: {
                 type: 'vbox',
@@ -53,17 +60,20 @@ Ext.define('Test.view.main.StudentDetails', {
                     xtype: 'textfield',
                     fieldLabel: 'Class',
                     labelAlign: 'left',
-                     bind: '{studentsList.selection.class}'
+                    readOnly: true,
+                    bind: '{studentsList.selection.class}'
                 },
                 {
                     xtype: 'textfield',
+                    readOnly: true,
                     fieldLabel: 'Year Entered',
-                     bind: '{studentsList.selection.enteredAt}'
+                    bind: '{studentsList.selection.enteredAt}'
                 },
                 {
                     xtype: 'datefield',
+                    readOnly: true,
                     fieldLabel: 'Graduate at'
-                } 
+                }
             ]
         }
     ]

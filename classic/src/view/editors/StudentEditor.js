@@ -15,11 +15,18 @@ Ext.define('Test.view.editors.StudentEditor',{
     buttons:[
         {
             text: 'Ok',
-            reference:'okBtn'
+            reference:'okBtn',
+            formBind: true,
+            listeners: {
+                click: 'onOkButtonClick'
+            }
         },
         {
             text: 'Cancel',
-            reference: 'cancelBtn'
+            reference: 'cancelBtn',
+            listeners: {
+                click: 'onCancelButtonClick'
+            }
         }
     ],
     items: [

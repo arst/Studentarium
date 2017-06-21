@@ -9,7 +9,7 @@ Ext.define('Test.view.main.StudentsList', {
         'Test.store.Students',
         'Test.view.editors.StudentEditor'
     ],
-
+    autoLoad: true,
     title: 'Students',
     reference: 'studentsList',
     columns: [

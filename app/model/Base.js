@@ -5,7 +5,12 @@ Ext.define('Test.model.Base', {
         namespace: 'Test.model',
         proxy: {
             type: 'rest',
-            url: "/{entityName}"
+            url: "/{entityName}",
+            writer:{
+                type: 'json',
+                writeAllFields: true
+            }
+
         }
     }
 });

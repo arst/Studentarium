@@ -33,8 +33,8 @@ Ext.define('Test.view.news.NewsMainView', {
                     };
                     var tpl = new Ext.XTemplate(
                         '<tpl for="news">',
-                        '<p>{Title}</p>',
-                        '<p>{ShortDescription}</p>',
+                        '<p class="news-header">{Title}</p>',
+                        '<p class="news-body">{ShortDescription}</p>',
                         '</tpl>'
                     );
                     debugger;
