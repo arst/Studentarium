@@ -55,7 +55,7 @@ Ext.define('Test.view.editors.StudentEditor',{
                     name: 'lastName'
                 },
                 {
-                    xtype: 'textfield',
+                    xtype: 'datefield',
                     fieldLabel: 'Date of Birth',
                     labelAlign: 'left',
                     name:'dateOfBirth'
