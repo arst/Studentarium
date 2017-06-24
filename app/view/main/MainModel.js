@@ -14,12 +14,11 @@ Ext.define('Test.view.main.MainModel', {
             get: function(data){
                 var result = "";
                 if(data){
-                    result = "<img style='width:200px;height:250px;' src='" + data + "'/>";
+                    result = "<div style='width:200px;height:200px'><img src='" + data + "'/>";
                 }
 
                 return result;
             }
         }
-    
     }
 });

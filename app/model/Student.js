@@ -1,6 +1,9 @@
 Ext.define('Test.model.Student', {
     extend: 'Test.model.Base',
     alias: 'model.student',
+    requires: [
+        'Test.model.StudentClass'
+    ],
     idProperty: 'id',
 
     clientIdProperty: 'clientId',
@@ -12,7 +15,10 @@ Ext.define('Test.model.Student', {
         'lastName',
         'class',
         'dateOfBirth',
-        'avgScore',
+        {
+            name: 'averageScore',
+            type: 'number'
+        },
         'email',
         'phone',
         {
@@ -23,8 +29,17 @@ Ext.define('Test.model.Student', {
                 return data.firstName + " " + data.middleName + " " + data.lastName;
             },
             depends: ['firstName', 'lastName', 'middleName']
-        }
+        },
+        'photo'
     ],
+    hasMany: {
+        model: 'StudentClass',
+        name: 'classes',
+        associationKey: 'classes',
+        store:{
+            groupField: 'Semester'
+        }
+    },
     proxy: {
         type: 'rest',
         url: 'http://localhost:3000/students',

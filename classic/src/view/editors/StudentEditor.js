@@ -1,70 +1,88 @@
-Ext.define('Test.view.editors.StudentEditor',{
+Ext.define('Test.view.editors.StudentEditor', {
     extend: 'Ext.window.Window',
     layout: 'fit',
     xtype: 'student-editor',
     alias: 'widget.student-editor',
-    requires:[
+    requires: [
         'Test.view.editors.StudentEditorsController'
     ],
     modal: true,
     controller: 'studentEditors',
-    loadRecord: function(record){
+    loadRecord: function (record) {
         var me = this;
         me.down('form').loadRecord(record);
     },
-    buttons:[
-        {
-            text: 'Ok',
-            reference:'okBtn',
-            formBind: true,
-            listeners: {
-                click: 'onOkButtonClick'
-            }
-        },
-        {
-            text: 'Cancel',
-            reference: 'cancelBtn',
-            listeners: {
-                click: 'onCancelButtonClick'
-            }
-        }
-    ],
+    listeners: {
+        beforeclose: 'onBeforeEditorClose'
+    },
     items: [
         {
             xtype: 'form',
             reference: 'studentForm',
-            layout:{
+            layout: {
                 type: 'vbox',
                 align: 'stretch'
             },
-            items:[
-               {
+            defaults: {
+                margin: 10
+            },
+            buttons: [
+                {
+                    text: 'Ok',
+                    reference: 'okBtn',
+                    formBind: true,
+                    listeners: {
+                        click: 'onOkButtonClick'
+                    }
+                },
+                {
+                    text: 'Cancel',
+                    reference: 'cancelBtn',
+                    listeners: {
+                        click: 'onCancelButtonClick'
+                    }
+                }
+            ],
+            items: [
+                {
                     xtype: 'textfield',
                     fieldLabel: 'First Name',
                     labelAlign: 'left',
-                    name:'firstName'
+                    name: 'firstName',
+                    allowBlank: false
                 },
                 {
                     xtype: 'textfield',
                     fieldLabel: 'Middle Name',
-                    name: 'middleName'
+                    name: 'middleName',
+                    allowBlank: false
                 },
                 {
                     xtype: 'textfield',
                     fieldLabel: 'Last Name',
-                    name: 'lastName'
+                    name: 'lastName',
+                    allowBlank: false
                 },
                 {
                     xtype: 'datefield',
                     fieldLabel: 'Date of Birth',
                     labelAlign: 'left',
-                    name:'dateOfBirth'
+                    name: 'dateOfBirth',
+                    allowBlank: false
+                },
+                {
+                    xtype: 'datefield',
+                    fieldLabel: 'Entered At',
+                    labelAlign: 'left',
+                    name: 'enteredAt',
+                    allowBlank: false
                 },
                 {
                     xtype: 'textfield',
                     fieldLabel: 'Class',
                     labelAlign: 'left',
-                    name: 'class'
+                    name: 'class',
+                    allowBlank: false
                 }
             ]
         }

@@ -26,6 +26,11 @@ Ext.define('Test.view.editors.StudentEditorsController', {
     },
     onCancelButtonClick: function onCancelButtonClick(){
         var me = this;
+        me.fireViewEvent('cancel');
         me.getView().close();
+    },
+    onBeforeEditorClose: function onBeforeEditorClose(){
+        var me = this;
+        me.fireViewEvent('cancel');
     }
 });

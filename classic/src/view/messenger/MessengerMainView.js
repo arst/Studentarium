@@ -30,8 +30,7 @@ Ext.define('Test.view.messenger.MessengerMainView',{
                                     xtype: 'textarea',
                                     flex: 9,
                                     width: '100%',
-                                    readOnly: true,
-                                    minHeight: 600
+                                    readOnly: true
                                 }
                             ]
                         }

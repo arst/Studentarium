@@ -1,7 +1,7 @@
 Ext.define('Test.view.news.NewsMainView', {
     extend: 'Ext.panel.Panel',
     layout: {
-        type: 'border'
+        type: 'fit'
     },
     xtype: 'newsMainView',
     alias: 'widget.newsMainView',
@@ -10,15 +10,17 @@ Ext.define('Test.view.news.NewsMainView', {
     ],
 
     controller: 'newsMainView',
-    items: [
-        {
-            title: 'Todays news',
-            region: 'center',
-            xtype: 'panel',
-            collapsible: false,
-            layout: 'fit',
-            html: '',
-            reference: 'todaysNews'
-        }
-    ]
+    heder: false,
+    scrollable: true,
+    collapsible: false,
+    reference: 'todaysNews',
+    tpl: new Ext.XTemplate(
+        '<div style="margin: 10px;text-align:center;">',
+        '<tpl for=".">',
+        '<img class="news-image" src="{urlToImage}"/>',
+        '<p data-id="{title}" data-url="{url}" class="news-header">{title}</p>',
+        '<p class="news-body">{description}</p>',
+        '</tpl>',
+        '</div>'
+    )
 });

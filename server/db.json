@@ -8,7 +8,27 @@
       "class": "33-CA-091",
       "email": "deanna.troi@enterprise.com",
       "phone": "555-333-3333",
-      "dateOfBirth": "11/11/2001"
+      "dateOfBirth": "11/11/2001",
+      "enteredAt": "03/03/2003",
+      "photo": "resources/images/3.png",
+      "averageScore": 1.71,
+      "classes": [
+        {
+          "Semester": "Fall 2017",
+          "Subject": "Front End development",
+          "Type": "Computer Science"
+        },
+        {
+          "Semester": "Summer 2017",
+          "Subject": "Introduction to databases",
+          "Type": "Computer Science"
+        },
+        {
+          "Semester": "Spring 2017",
+          "Subject": "NoSQL",
+          "Type": "Computer Science"
+        }
+      ]
     },
     {
       "id": 4,
@@ -18,16 +38,56 @@
       "class": "33-CA-091",
       "email": "mr.data@enterprise.com",
       "phone": "555-444-4444",
-      "dateOfBirth": "11/11/2001"
+      "dateOfBirth": "1980-11-11T00:00:00",
+      "enteredAt": "03/03/2003",
+      "photo": "resources/images/2.png",
+      "averageScore": 4.71,
+      "classes": [
+        {
+          "Semester": "Fall 2017",
+          "Subject": "Front End development",
+          "Type": "Computer Science"
+        },
+        {
+          "Semester": "Summer 2017",
+          "Subject": "Introduction to databases",
+          "Type": "Computer Science"
+        },
+        {
+          "Semester": "Spring 2017",
+          "Subject": "NoSQL",
+          "Type": "Computer Science"
+        }
+      ]
     },
     {
       "clientId": "Student-3",
-      "firstName": "Joe",
+      "firstName": "Sue",
       "middleName": "M",
       "lastName": "Hillaryz",
       "class": "33-A-B1",
-      "dateOfBirth": null,
-      "id": 8
+      "dateOfBirth": "01/01/1990",
+      "enteredAt": "03/03/2003",
+      "averageScore": 4,
+      "photo": "resources/images/1.png",
+      "id": 8,
+      "classes": [
+        {
+          "Semester": "Fall 2017",
+          "Subject": "Front End development",
+          "Type": "Computer Science"
+        },
+        {
+          "Semester": "Summer 2017",
+          "Subject": "Introduction to databases",
+          "Type": "Computer Science"
+        },
+        {
+          "Semester": "Spring 2017",
+          "Subject": "NoSQL",
+          "Type": "Computer Science"
+        }
+      ]
     }
   ],
   "personnel": [

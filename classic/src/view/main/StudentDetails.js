@@ -62,15 +62,11 @@ Ext.define('Test.view.main.StudentDetails', {
                     bind: '{studentsList.selection.class}'
                 },
                 {
-                    xtype: 'textfield',
-                    readOnly: true,
-                    fieldLabel: 'Year Entered',
-                    bind: '{studentsList.selection.enteredAt}'
-                },
-                {
                     xtype: 'datefield',
+                    bind: '{studentsList.selection.enteredAt}',
                     readOnly: true,
-                    fieldLabel: 'Graduate at'
+                    labelAlign: 'left',
+                    fieldLabel: 'Entered At'
                 }
             ]
         }

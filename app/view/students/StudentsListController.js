@@ -1,4 +1,4 @@
-Ext.define('Test.view.main.StudentsListController', {
+Ext.define('Test.view.students.StudentsListController', {
     extend: 'Ext.app.ViewController',
 
     alias: 'controller.studentsList',
@@ -8,6 +8,9 @@ Ext.define('Test.view.main.StudentsListController', {
         var newStudent = Ext.create('Test.model.Student');
         me.getView().getStore().add(newStudent);
         var editor = Ext.create('Test.view.editors.StudentEditor');
+        editor.on('cancel', function(){
+            me.getView().getStore().rejectChanges();
+        })
         editor.loadRecord(newStudent);
         editor.show();
     }

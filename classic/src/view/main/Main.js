@@ -1,5 +1,5 @@
 Ext.define('Test.view.main.Main', {
-    extend: 'Ext.panel.Panel',
+    extend: 'Ext.container.Viewport',
     xtype: 'app-main',
 
     requires: [
@@ -10,74 +10,89 @@ Ext.define('Test.view.main.Main', {
         'Test.view.main.MainController',
         'Test.view.main.MainModel',
         'Test.view.main.List',
-        'Test.view.main.StudentsList',
-        'Test.view.main.StudentDetails'
+        'Test.view.students.StudentsView'
     ],
     controller: 'main',
     viewModel: 'main',
     items: [
         {
-            xtype: 'tabpanel',
-            ui: 'navigation',
-
-            tabBarHeaderPosition: 1,
-            titleRotation: 0,
-            tabRotation: 0,
-
-            header: {
-                layout: {
-                    align: 'stretchmax'
-                },
-                title: {
-                    bind: {
-                        text: '{name}'
-                    },
-                    flex: 0
-                },
-                iconCls: 'fa-th-list'
-            },
-            tabBar: {
-                flex: 1,
-                layout: {
-                    align: 'stretch',
-                    overflowHandler: 'none'
+            xtype: 'panel',
+            layout: 'card',
+            height: '100%',
+            reference: 'mainView',
+            dockedItems:[
+                {
+                    xtype:'toolbar',
+                    items:[
+                        {
+                            xtype: 'button',
+                            text: 'Menu',
+                            reference: 'menuBtn',
+                            menu:[
+                                {
+                                    text: 'Students',
+                                    listeners:{
+                                        click: 'onMenuItemClick'
+                                    }
+                                },
+                                {
+                                    text: 'News',
+                                    listeners:{
+                                        click: 'onMenuItemClick'
+                                    }
+                                },
+                                {
+                                    text: 'Messenger',
+                                    listeners:{
+                                        click: 'onMenuItemClick'
+                                    }
+                                },
+                                {
+                                    text:'Contacts',
+                                    listeners:{
+                                        click: 'onMenuItemClick'
+                                    }
+                                }
+                            ]
+                        }
+                    ]
                 }
-            },
+            ],
             items: [
-               {
-                   title: 'Students',
-                   minHeight: 650,
-                   layout: {
-                       type: 'vbox',
-                       align: 'stretch'
-                   },
-                   items:[
+                /*{
+                    title: 'Students',
+                    layout: {
+                        type: 'vbox',
+                        align: 'stretch'
+                    },
+                    items: [
                         {
                             xtype: 'studentsList',
-                            flex: 5
+                            flex: 4
                         },
                         {
-                            xtype: 'studentdetails',
+                            xtype: 'studentClasses',
                             flex: 2
                         }
-                   ]
-               },{
-                   title: 'News1',
-                   items: [
-                       {
-                           xtype: 'newsMainView',
-                           height: 1000
-                       }
-                   ]
-               },
-               {
-                   title: 'Messenger',
-                   items:[
+                    ]
+                }*/{
+                    xtype: 'studentsView'
+                }, {
+                    title: 'News',
+                    items: [
+                        {
+                            xtype: 'newsMainView'
+                        }
+                    ]
+                },
+                {
+                    title: 'Messenger',
+                    items: [
                         {
                             xtype: 'messengerMainView'
                         }
-                   ]
-               }
+                    ]
+                }
             ]
         }
     ]

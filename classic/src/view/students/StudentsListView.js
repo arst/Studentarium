@@ -1,33 +1,74 @@
 /**
  * This view is an example list of people.
  */
-Ext.define('Test.view.main.StudentsList', {
+Ext.define('Test.view.students.StudentsListView', {
     extend: 'Ext.grid.Panel',
     xtype: 'studentsList',
 
     requires: [
         'Test.store.Students',
         'Test.view.editors.StudentEditor',
-        'Test.view.main.StudentsListController'
+        'Test.view.students.StudentsListController'
     ],
     autoLoad: true,
-    title: 'Students',
+    shrinkWrapDock: true,
     reference: 'studentsList',
     controller: 'studentsList',
     dockedItems: [
         {
-            xtype: 'button',
-            text: 'New',
-            listeners: {
-                click: 'onNewStudentButtonClick'
-            }
+            xtype: 'toolbar',
+            items: [
+                {
+                    xtype: 'button',
+                    text: 'New',
+                    listeners: {
+                        click: 'onNewStudentButtonClick'
+                    }
+                }
+            ]
         }
+
     ],
+    plugins: [{
+        ptype: 'rowexpander',
+        rowBodyTpl: new Ext.XTemplate(
+            '<tpl for=".">',
+            '<div style="width:200px;height:200px"><img src="{photo}"/></div>',
+            '<p style="font-weight:900">First Name:</p> {firstName}',
+            '<p style="font-weight:900">Middle Name:</p> {middleName}',
+            '<p style="font-weight:900">Last Name:</p> {lastName}',
+            '</tpl>'
+        )
+    }],
     columns: [
         { text: 'Name', dataIndex: 'fullName', flex: 1 },
         { text: 'Date of Birth', dataIndex: 'dateOfBirth', flex: 1 },
         { text: 'Class', dataIndex: 'class', flex: 1 },
-        { text: 'Avg. Score', dataIndex: 'averageScore', width: 150 },
+        {
+            text: 'Avg. Score',
+            dataIndex: 'averageScore',
+            width: 150,
+            renderer: function (value, meta, record, rowIndex, colIndex, store, view) {
+                var data = [];
+                store.each(function (rec) {
+                    data.push(rec.data);
+                });
+                var score = Ext.Array.reduce(data, function (previous, value, index) {
+                    return previous + value.averageScore;
+                }, 0);
+                debugger;
+                var medianScore = score / store.getCount();
+                if (value == medianScore) {
+                    return '<p style="font-weight: 900;color: yellow;">' + value + '</p>'
+                }
+                else if (value > medianScore) {
+                    return '<p style="font-weight: 900;color: green">' + value + '</p>'
+                }
+                else {
+                    return '<p style="font-weight: 900;color: red">' + value + '</p>'
+                }
+            }
+        },
         {
             xtype: 'actioncolumn',
             width: 100,

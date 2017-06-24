@@ -1,9 +1,17 @@
 .news-header {
     font-size: 24px;
-    text-align: center
+    text-align: center;
+    cursor:pointer;
+    color:cornflowerblue;
+    font-weight: 1200;
 }
 .news-body {
-    font-size: 14px;
-    text-indent: 30px;
-    text-align: justify
+    text-align: justify;
+    text-align: center;
+    font-size: 16px;
+}
+
+.news-image {
+    width:20%;
+    height: auto;
 }
