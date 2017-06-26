@@ -56,7 +56,6 @@ Ext.define('Test.view.students.StudentsListView', {
                 var score = Ext.Array.reduce(data, function (previous, value, index) {
                     return previous + value.averageScore;
                 }, 0);
-                debugger;
                 var medianScore = score / store.getCount();
                 if (value == medianScore) {
                     return '<p style="font-weight: 900;color: yellow;">' + value + '</p>'

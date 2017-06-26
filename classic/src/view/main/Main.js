@@ -77,21 +77,12 @@ Ext.define('Test.view.main.Main', {
                     ]
                 }*/{
                     xtype: 'studentsView'
-                }, {
-                    title: 'News',
-                    items: [
-                        {
-                            xtype: 'newsMainView'
-                        }
-                    ]
+                }, 
+                {
+                    xtype: 'newsMainView'
                 },
                 {
-                    title: 'Messenger',
-                    items: [
-                        {
-                            xtype: 'messengerMainView'
-                        }
-                    ]
+                   xtype: 'messengerMainView'
                 }
             ]
         }

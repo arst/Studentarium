@@ -55,7 +55,8 @@
      *      ]
      */
     "requires": [
-        "font-awesome"
+        "font-awesome",
+        "signalR"
     ],
 
     /**
@@ -216,6 +217,14 @@
     "js": [
         {
             "path": "app.js",
+            "bundle": true
+        },
+        {
+            "path":"libs\\jquery-1.6.4.min.js",
+            "bundle": true
+        },
+         {
+            "path":"libs\\jquery.signalR.min.js",
             "bundle": true
         }
     ],
