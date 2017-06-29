@@ -56,7 +56,10 @@ Ext.define('Test.view.messenger.MessengerMainView',{
                             xtype: 'button',
                             reference: 'sendButton',
                             text: 'Send',
-                            flex: 1
+                            flex: 1,
+                            listeners: {
+                                click: 'onSendClick'
+                            }
                         }
                     ]
                 }
