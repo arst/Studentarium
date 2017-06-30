@@ -4,7 +4,7 @@ Ext.define('Test.view.messenger.MessengerMainView',{
         type: 'hbox',
         align: 'stretch'
     },
-    height: 600,
+    height: 700,
     xtype: 'messengerMainView',
     alias: 'widget.messengerMainView',
     requires: [
@@ -12,6 +12,11 @@ Ext.define('Test.view.messenger.MessengerMainView',{
         'Test.store.MessengerContacts'
     ],
     controller: 'messengerMainView',
+    viewModel:{
+        data : {
+            activeChatId: 'All'
+        }
+    },
     listeners: {
         show: 'onViewShown'
     },
@@ -19,7 +24,7 @@ Ext.define('Test.view.messenger.MessengerMainView',{
         {
             xtype: 'container',
             flex: 8,
-            height: '100%',
+            height: 700,
             layot: {
                 type: 'vbox',
                 align: 'stretch'
@@ -28,6 +33,9 @@ Ext.define('Test.view.messenger.MessengerMainView',{
                 {
                     xtype: 'tabpanel',
                     reference: 'chatTabs',
+                    listeners:{
+                        tabchange: 'onAtiveChatTabChange'
+                    },
                     items:[
                         {
                             title: 'All',
@@ -70,12 +78,16 @@ Ext.define('Test.view.messenger.MessengerMainView',{
             flex: 2,
             title: 'Online',
             height: '100%',
+            reference: 'usersInChat',
             hideHeaders:true,
             columns: [
                {text: 'Name', dataIndex: 'Name', flex: 10} 
             ],
             store:{
                 type: 'messengerContacts'
+            },
+            listeners:{
+                beforeitemdblclick : 'onUsersInChatDblClick'
             }
         }
     ]
